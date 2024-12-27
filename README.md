@@ -29,7 +29,7 @@ The complete prompt for this GPT is available in this repository:
 - LinkedIn: [Connect with me](https://www.linkedin.com/in/edoardoavenia/)
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Version-1.0-2ea44f?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/v0.1-Beta-orange?style=flat-square&logo=v" alt="Version">
 </div>
 
 <div align="center">
