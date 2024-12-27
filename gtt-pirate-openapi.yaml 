@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: GTT Pirate API
+  description: >
+    An unofficial API for accessing real-time public transport passage information in Turin.  
+    Please note this API is not officially supported and may occasionally experience disruptions.  
+    For issues, refer to the GitHub repository or open an issue.
+  version: 1.0.0
+  contact:
+    name: Maintainer
+    url: https://github.com/madbob/gtt-pirate-api
+    email: example@example.com
+  license:
+    name: GPLv3
+    url: https://www.gnu.org/licenses/gpl-3.0.html
+servers:
+  - url: https://gpa.madbob.org
+    description: GTT Pirate API server (Secure HTTP)
+paths:
+  /query.php:
+    get:
+      operationId: getStopInformation
+      summary: Retrieves real-time transit information for a specific stop.
+      description: >
+        This endpoint returns a JSON array containing transit line information for the specified stop.  
+        Each object in the array represents a line, its next scheduled arrival, and whether the information is real-time.
+      parameters:
+        - in: query
+          name: stop
+          required: true
+          description: The identification number of the stop.
+          schema:
+            type: string
+            pattern: '^[0-9]+$'
+            example: '12345'
+      responses:
+        '200':
+          description: A JSON array of transit line information.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    line:
+                      type: string
+                      description: The transit line number (e.g., "13").
+                    hour:
+                      type: string
+                      description: The scheduled arrival time at the stop in HH:mm format.
+                    realtime:
+                      type: string
+                      description: >
+                        Indicates whether the information is real-time.  
+                        Possible values: `"true"` (real-time) or `"false"` (scheduled).
+              example:
+                - line: "13"
+                  hour: "00:40"
+                  realtime: "true"
+                - line: "13"
+                  hour: "01:05"
+                  realtime: "true"
+        '400':
+          description: >
+            Bad Request. This status occurs if the `stop` parameter is missing or invalid.  
+            Ensure the stop parameter is provided and follows the required format.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message explaining the issue.
+              example:
+                error: "Missing or invalid 'stop' parameter."
+        '500':
+          description: >
+            Internal Server Error. Indicates an issue with the server while processing the request.  
+            This is usually temporary—try again later.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message for debugging purposes.
+              example:
+                error: "Internal server error. Please try again later."
