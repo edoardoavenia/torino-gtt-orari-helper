@@ -9,12 +9,12 @@
 </div>
 
 ## 🤖 About This GPT
-Your AI assistant for checking GTT bus schedules in Turin. Simply enter the bus stop number to know when the next bus arrives! Please note: this is a test project for learning GPTs API actions - for real-time updates, use @orariGTT_bot on Telegram.
+An experimental project I created to learn about GPTs API Actions. This GPT connects to Turin's bus schedule data, but it's important to note that it's just a learning exercise and not meant for practical use. For actual real-time bus schedules, please use @orariGTT_bot on Telegram.
 
-This GPT uses the unofficial GTT API available at [gpa.madbob.org](https://gpa.madbob.org/), also known as "GTT PIRATE API". This API provides real-time bus schedules for Turin's public transportation system. You can find:
+This GPT uses the same unofficial GTT API available at [gpa.madbob.org](https://gpa.madbob.org/), also known as "GTT PIRATE API". While it can access real-time data, it doesn't add any additional functionality over the existing Telegram bot. You can find:
 - 🌐 API endpoint: [https://gpa.madbob.org/](https://gpa.madbob.org/)
 - 📂 Source code: [github.com/madbob/gtt-pirate-api](https://github.com/madbob/gtt-pirate-api)
-- 📄 API Schema: Available in `gtt-pirate-openapi.yaml` file in this repository
+- 📄 API Schema: [View Schema](./gtt-pirate-openapi.yaml)
 
 ## 🔗 Direct Links
 - 🎯 [Try Torino GTT Orari Helper](https://chatgpt.com/g/g-4YsHW0wBz-torino-gtt-orari-helper)
